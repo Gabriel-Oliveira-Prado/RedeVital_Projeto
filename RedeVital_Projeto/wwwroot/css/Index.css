@@ -1,0 +1,12 @@
+﻿.content-body {
+    background-color: #f8f9fc;
+}
+
+.card {
+    border-radius: 0.35rem;
+}
+
+.list-group-item {
+    margin-bottom: 0.5rem;
+    border-radius: 0.35rem;
+}
