@@ -1,51 +1,93 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RedeVital_Projeto</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - RedeVital</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" />
     <link rel="stylesheet" href="~/RedeVital_Projeto.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    
 </head>
 <body>
-    <div class="d-flex">
+    <div class="main-container d-flex">
         <!-- Sidebar -->
-        <div class="bg-light border-end sidebar" id="sidebar">
-            <div class="p-3 border-bottom">
-                <h3>RedeVital</h3>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-heartbeat me-2"></i>RedeVital</h3>
             </div>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Vacinas">Vacinas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Patients" asp-action="Index">Patients</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="Index">Appointments</a>
-                </li>
-            </ul>
+
+            <div class="sidebar-content p-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Vacinas">
+                            <i class="fas fa-syringe"></i> Vacinas/Remédios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="Index">
+                            <i class="fas fa-calendar-alt"></i> Agenda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Prontuario">
+                            <i class="fas fa-file-medical"></i> Prontuário
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Lumi" asp-action="Index">
+                            <i class="fas fa-lightbulb"></i> Lumi
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Perfil" asp-action="Index">
+                            <i class="fas fa-user"></i> Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Configuracoes" asp-action="Index">
+                            <i class="fas fa-cog"></i> Configurações
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Ajuda" asp-action="Index">
+                            <i class="fas fa-question-circle"></i> Ajuda
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="nav-item">
+                        <button class="btn-logout">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- Main Content -->
-        <div class="flex-grow-1">
+        <div class="main-content flex-grow-1">
             <header>
-                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <nav class="navbar navbar-expand-sm navbar-light box-shadow">
                     <div class="container-fluid">
                         <button class="navbar-toggler sidebar-toggle" type="button" id="sidebarToggle">
                             <i class="fas fa-bars"></i>
                         </button>
                         <div class="navbar-content">
-                            <!-- Todos os itens alinhados à direita -->
                             <div class="d-flex align-items-center gap-3">
-                                <!-- Barra de busca -->
                                 <div class="search-bar">
                                     <div class="input-group input-group-sm">
                                         <input type="text" class="form-control" placeholder="Buscar...">
@@ -55,7 +97,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Ícones -->
                                 <button class="action-btn">
                                     <i class="fas fa-cog"></i>
                                 </button>
@@ -67,18 +108,14 @@
                                     <i class="fas fa-comment-dots"></i>
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">5</span>
                                 </button>
-                                <button class="action-btn" id="fullscreen-btn">
-                                    <i class="fas fa-expand"></i>
-                                </button>
 
-                                <!-- Perfil -->
                                 <div class="user-card">
-                                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center user-avatar">
+                                    <div class="user-avatar">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="user-info">
-                                        <div class="user-name">John Doe</div>
-                                        <div class="user-email">john.doe@example.com</div>
+                                    <div class="user-info d-none d-md-block">
+                                        <div class="user-name">João Silva</div>
+                                        <div class="user-email">joao.silva@example.com</div>
                                     </div>
                                 </div>
                             </div>
@@ -86,15 +123,16 @@
                     </div>
                 </nav>
             </header>
-            <div class="container">
+
+            <div class="content-wrap">
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
             </div>
 
-            <footer class="border-top footer text-muted">
+            <footer class="footer mt-auto py-3">
                 <div class="container">
-                    &copy; 2025 - RedeVital_Projeto - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    &copy; 2025 - RedeVital - <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
                 </div>
             </footer>
         </div>
@@ -104,31 +142,19 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
-        // Função para tela cheia
-        document.getElementById('fullscreen-btn').addEventListener('click', function() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-                this.innerHTML = '<i class="fas fa-compress"></i>';
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                    this.innerHTML = '<i class="fas fa-expand"></i>';
-                }
-            }
-        });
-
-        // Função para mostrar/esconder sidebar em mobile
+        // Toggle sidebar
         document.getElementById('sidebarToggle').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('show');
         });
 
-        // Fechar sidebar ao clicar fora (opcional)
+        // Close sidebar when clicking outside on mobile
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const toggleBtn = document.getElementById('sidebarToggle');
 
-            if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target) &&
-                window.innerWidth <= 991.98) {
+            if (window.innerWidth <= 991.98 &&
+                !sidebar.contains(event.target) &&
+                !toggleBtn.contains(event.target)) {
                 sidebar.classList.remove('show');
             }
         });

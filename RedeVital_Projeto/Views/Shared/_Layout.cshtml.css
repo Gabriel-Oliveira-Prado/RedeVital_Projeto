@@ -1,50 +1,110 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-  color: #0077cc;
+.main-container {
+    min-height: 100vh;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* Navbar - Branca com conteúdo à direita */
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbar-content {
+    display: flex;
+    justify-content: flex-end !important;
+    width: 100%;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+/* Sidebar - Itens em #9DD4C5 */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid #e9ecef;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.sidebar-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    .sidebar-header h3 {
+        color: #9DD4C5;
+        font-weight: 600;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+.sidebar-content {
+    padding: 1rem 0;
+}
+
+.sidebar .nav-link {
+    color: #9DD4C5 !important;
+    padding: 0.75rem 1.5rem;
+    margin: 0.1rem 0;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+    .sidebar .nav-link:hover {
+        color: #7bb8a8 !important;
+        background-color: rgba(157, 212, 197, 0.1);
+    }
+
+    .sidebar .nav-link i {
+        width: 24px;
+        text-align: center;
+        margin-right: 12px;
+        font-size: 1rem;
+        color: inherit !important;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: rgba(157, 212, 197, 0.2) !important;
+        color: #7bb8a8 !important;
+    }
+
+.divider {
+    border-top: 1px solid #e9ecef;
+    margin: 1rem 1.5rem;
+}
+
+/* Conteúdo principal */
+.main-content {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrap {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+/* Componentes da Navbar */
+.search-bar {
+    width: 250px;
+    margin-right: 1rem;
 }
 
 .action-btn {
@@ -54,30 +114,35 @@ button.accept-policy {
     font-size: 1.1rem;
     padding: 0.5rem;
     transition: color 0.2s;
+    position: relative;
 }
 
-.action-btn:hover {
-    color: #0d6efd;
-}
-
-.search-bar {
-    width: 300px;
-}
+    .action-btn:hover {
+        color: #0d6efd;
+    }
 
 .user-card {
     display: flex;
     align-items: center;
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    border: 1px solid #e9ecef;
-    margin-left: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    transition: all 0.2s;
+    cursor: pointer;
 }
+
+    .user-card:hover {
+        background-color: #f1f1f1;
+    }
 
 .user-avatar {
     width: 36px;
     height: 36px;
-    font-size: 0.9rem;
+    background-color: #9DD4C5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     margin-right: 0.75rem;
 }
 
@@ -88,6 +153,7 @@ button.accept-policy {
 .user-name {
     font-weight: 600;
     font-size: 0.9rem;
+    color: #495057;
 }
 
 .user-email {
@@ -95,28 +161,44 @@ button.accept-policy {
     color: #6c757d;
 }
 
-.sidebar {
-    width: 250px;
-    min-height: 100vh;
-    transition: transform 0.3s ease;
-}
-
-.sidebar-collapse {
-    transform: translateX(-100%);
-}
-
-.sidebar-toggle {
-    display: none;
-    margin-right: 1rem;
-}
-
-.navbar-content {
-    display: flex;
-    justify-content: flex-end;
+/* Botão de logout */
+.btn-logout {
+    background: none;
+    border: none;
+    color: #9DD4C5;
+    padding: 0.75rem 1.5rem;
     width: 100%;
+    text-align: left;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
 }
 
-@@media (max-width: 991.98px) {
+    .btn-logout:hover {
+        color: #7bb8a8;
+        background-color: rgba(157, 212, 197, 0.1);
+    }
+
+    .btn-logout i {
+        width: 24px;
+        text-align: center;
+        margin-right: 12px;
+        font-size: 1rem;
+    }
+
+/* Footer */
+.footer {
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Responsividade */
+@media (max-width: 991.98px) {
     .sidebar {
         position: fixed;
         z-index: 1000;
@@ -127,15 +209,17 @@ button.accept-policy {
             transform: translateX(0);
         }
 
-    .sidebar-toggle {
-        display: block;
-    }
-
     .search-bar {
-        width: 200px;
+        width: 180px;
     }
 
-    .navbar-content {
-        justify-content: space-between;
+    .user-info {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .search-bar {
+        display: none;
     }
 }
