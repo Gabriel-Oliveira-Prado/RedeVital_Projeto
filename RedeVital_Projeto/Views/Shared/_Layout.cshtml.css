@@ -1,4 +1,4 @@
-﻿/* Estilos gerais */
+﻿/* Main Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f7fa;
@@ -8,12 +8,13 @@ body {
 
 .main-container {
     min-height: 100vh;
+    display: flex;
 }
 
-/* Navbar - Branca com conteúdo à direita */
+/* Navbar Styles with #9DD4C5 border */
 .navbar {
     background-color: white !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #9DD4C5 !important;
     padding: 0.5rem 1rem;
 }
 
@@ -26,16 +27,17 @@ body {
 .navbar-toggler {
     border: none;
     font-size: 1.25rem;
+    color: #495057;
 }
 
-/* Sidebar - Itens em #9DD4C5 */
+/* Sidebar Styles with #9DD4C5 border */
 .sidebar {
     width: 250px;
     min-height: 100vh;
     background-color: #ffffff;
     transition: transform 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-    border-right: 1px solid #e9ecef;
+    border-right: 2px solid #9DD4C5 !important;
+    z-index: 1000;
 }
 
 .sidebar-header {
@@ -49,13 +51,15 @@ body {
         margin: 0;
         display: flex;
         align-items: center;
+        font-size: 1.25rem;
     }
 
 .sidebar-content {
     padding: 1rem 0;
 }
 
-.sidebar .nav-link {
+/* Menu Links */
+.sidebar .nav-item a.nav-link {
     color: #9DD4C5 !important;
     padding: 0.75rem 1.5rem;
     margin: 0.1rem 0;
@@ -63,14 +67,15 @@ body {
     transition: all 0.2s;
     display: flex;
     align-items: center;
+    text-decoration: none !important;
 }
 
-    .sidebar .nav-link:hover {
+    .sidebar .nav-item a.nav-link:hover {
         color: #7bb8a8 !important;
-        background-color: rgba(157, 212, 197, 0.1);
+        background-color: rgba(157, 212, 197, 0.1) !important;
     }
 
-    .sidebar .nav-link i {
+    .sidebar .nav-item a.nav-link i {
         width: 24px;
         text-align: center;
         margin-right: 12px;
@@ -78,22 +83,18 @@ body {
         color: inherit !important;
     }
 
-    .sidebar .nav-link.active {
-        background-color: rgba(157, 212, 197, 0.2) !important;
-        color: #7bb8a8 !important;
-    }
-
 .divider {
     border-top: 1px solid #e9ecef;
     margin: 1rem 1.5rem;
 }
 
-/* Conteúdo principal */
+/* Main Content */
 .main-content {
     background-color: #f8f9fa;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .content-wrap {
@@ -101,7 +102,7 @@ body {
     padding: 1.5rem;
 }
 
-/* Componentes da Navbar */
+/* Other Components */
 .search-bar {
     width: 250px;
     margin-right: 1rem;
@@ -115,6 +116,7 @@ body {
     padding: 0.5rem;
     transition: color 0.2s;
     position: relative;
+    cursor: pointer;
 }
 
     .action-btn:hover {
@@ -130,10 +132,6 @@ body {
     cursor: pointer;
 }
 
-    .user-card:hover {
-        background-color: #f1f1f1;
-    }
-
 .user-avatar {
     width: 36px;
     height: 36px;
@@ -146,26 +144,11 @@ body {
     margin-right: 0.75rem;
 }
 
-.user-info {
-    line-height: 1.2;
-}
-
-.user-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #495057;
-}
-
-.user-email {
-    font-size: 0.75rem;
-    color: #6c757d;
-}
-
-/* Botão de logout */
+/* Red Logout Button */
 .btn-logout {
     background: none;
     border: none;
-    color: #9DD4C5;
+    color: #dc3545 !important; /* Red color */
     padding: 0.75rem 1.5rem;
     width: 100%;
     text-align: left;
@@ -176,8 +159,8 @@ body {
 }
 
     .btn-logout:hover {
-        color: #7bb8a8;
-        background-color: rgba(157, 212, 197, 0.1);
+        color: #bb2d3b !important; /* Darker red on hover */
+        background-color: rgba(220, 53, 69, 0.1) !important;
     }
 
     .btn-logout i {
@@ -185,23 +168,23 @@ body {
         text-align: center;
         margin-right: 12px;
         font-size: 1rem;
+        color: inherit !important;
     }
 
-/* Footer */
+/* Footer with #9DD4C5 border */
 .footer {
     background-color: white;
     padding: 1rem;
     text-align: center;
     color: #6c757d;
     font-size: 0.9rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 2px solid #9DD4C5 !important;
 }
 
-/* Responsividade */
+/* Responsive */
 @media (max-width: 991.98px) {
     .sidebar {
         position: fixed;
-        z-index: 1000;
         transform: translateX(-100%);
     }
 
@@ -211,10 +194,6 @@ body {
 
     .search-bar {
         width: 180px;
-    }
-
-    .user-info {
-        display: none;
     }
 }
 
