@@ -45,14 +45,16 @@ body {
     border-bottom: 1px solid #e9ecef;
 }
 
-    .sidebar-header h3 {
-        color: #9DD4C5;
-        font-weight: 600;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        font-size: 1.25rem;
-    }
+.logoname {
+    color: #9DD4C5;
+    font-weight: 600;
+    margin: 0;
+    font-size: 25px;
+}
+
+img {
+    width: 60px;
+}
 
 .sidebar-content {
     padding: 1rem 0;
