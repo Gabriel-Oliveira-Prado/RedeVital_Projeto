@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RedeVital</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RedeVital_Projeto.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
@@ -21,22 +21,23 @@
             <div class="sidebar-content p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        <a class="nav-link" href="/Home/Index">
+                            <i class="fas fa-tachometer-alt"></i> Index
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Vacinas">
+                        <a class="nav-link" href="/Home/Vacinas">
                             <i class="fas fa-syringe"></i> Vacinas/Remédios
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="Index">
+                        <a class="nav-link" >
                             <i class="fas fa-calendar-alt"></i> Agenda
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Prontuario">
+                        <a class="nav-link" >
                             <i class="fas fa-file-medical"></i> Prontuário
                         </a>
                     </li>
@@ -44,7 +45,7 @@
                     <li class="divider"></li>
 
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Lumi" asp-action="Index">
+                        <a class="nav-link" >
                             <i class="fas fa-lightbulb"></i> Lumi
                         </a>
                     </li>
@@ -52,17 +53,17 @@
                     <li class="divider"></li>
 
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Perfil" asp-action="Index">
+                        <a class="nav-link" >
                             <i class="fas fa-user"></i> Perfil
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Configuracoes" asp-action="Index">
+                        <a class="nav-link" >
                             <i class="fas fa-cog"></i> Configurações
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Ajuda" asp-action="Index">
+                        <a class="nav-link">
                             <i class="fas fa-question-circle"></i> Ajuda
                         </a>
                     </li>
