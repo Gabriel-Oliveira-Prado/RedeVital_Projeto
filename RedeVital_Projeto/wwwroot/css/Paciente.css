@@ -1,0 +1,232 @@
+﻿.map-container {
+    height: 500px;
+    background-color: #ddd;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.search-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.search-bar {
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    .search-bar input {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        background-color: #4e73df;
+        color: white;
+        border: none;
+        padding: 0 20px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+
+.filter-tags {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .filter-tags::-webkit-scrollbar {
+        display: none;
+    }
+
+.tag {
+    background-color: #f8f9fc;
+    border: 1px solid #d1d3e2;
+    border-radius: 15px;
+    padding: 5px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+    .tag.active {
+        background-color: #4e73df;
+        color: white;
+        border-color: #4e73df;
+    }
+
+.floating-buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 99;
+}
+
+.floating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4e73df;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+    .floating-btn.emergency {
+        background-color: #e74a3b;
+    }
+
+.health-resources {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.resource-section {
+    margin-bottom: 20px;
+}
+
+    .resource-section h3 {
+        color: #4e73df;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+    .resource-item i {
+        margin-right: 10px;
+        color: #4e73df;
+        width: 20px;
+        text-align: center;
+    }
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.modal-content {
+    background-color: white;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .modal-header h2 {
+        color: #4e73df;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #5a5c69;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.info-label {
+    font-weight: 600;
+    width: 100px;
+    color: #5a5c69;
+    font-size: 14px;
+}
+
+.rating {
+    color: #f6c23e;
+    margin-bottom: 15px;
+}
+
+.action-btn {
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+    .action-btn.route {
+        background-color: #1cc88a;
+    }
+
+/* Adicionais para a lista de unidades */
+.unit-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.unit-item {
+    transition: all 0.3s;
+}
+
+    .unit-item:hover {
+        background-color: #f8f9fc;
+    }
+
+.badge-status {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}

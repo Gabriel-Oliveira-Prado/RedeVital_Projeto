@@ -13,11 +13,19 @@ namespace RedeVital_Projeto.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Paciente()
+        {
+            return View();
+        }
         public IActionResult Vacinas()
         {
             return View();

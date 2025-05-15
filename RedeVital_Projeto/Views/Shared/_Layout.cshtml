@@ -18,6 +18,7 @@
                 <img src="/img/REDEVITAL_LOGO-nobackground.png" alt="Logo" class="me-2">
                 <span class="logoname">RedeVital</span>
             </div>
+
             <div class="sidebar-content p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -31,29 +32,34 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link" href="/Home/Paciente">
+                            <i class="fas fa-procedures"></i> Paciente
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
                             <i class="fas fa-calendar-alt"></i> Agenda
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link">
                             <i class="fas fa-file-medical"></i> Prontuário
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link">
                             <i class="fas fa-lightbulb"></i> Lumi
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link">
                             <i class="fas fa-user"></i> Perfil
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link">
                             <i class="fas fa-cog"></i> Configurações
                         </a>
                     </li>
@@ -65,7 +71,9 @@
                     <li class="divider"></li>
                     <li class="nav-item">
                         <button class="btn-logout">
-                            <i class="fas fa-sign-out-alt"></i> Sair
+                            <a class="btn-logout" asp-controller="Home" asp-action="Login">
+                                <i class="fas fa-sign-out-alt"></i> Sair
+                            </a>
                         </button>
                     </li>
                 </ul>
