@@ -1,12 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Vacinas";
+    Layout = "~/Views/Shared/Layouts/Medico/_MedicoLayout.cshtml";
 }
 <div class="container">
     <h1>@ViewData["Title"]</h1>
-
-    <!-- Cards na mesma linha -->
+    <link rel="stylesheet" href="~/css/Vacinas.css" />
     <div class="row mb-5">
-        <!-- Card Campanhas -->
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-primary text-white">
@@ -25,7 +23,6 @@
             </div>
         </div>
 
-        <!-- Card Estoque -->
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
@@ -45,7 +42,6 @@
             </div>
         </div>
 
-        <!-- Card Histórico -->
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-info text-white">
@@ -68,7 +64,6 @@
         </div>
     </div>
 
-    <!-- Seção de Relatórios e Estatísticas -->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -80,14 +75,12 @@
                         <div class="col-md-6">
                             <h6><i class="fas fa-syringe mr-2"></i>Cobertura Vacinal</h6>
                             <div class="chart-container" style="height: 200px;">
-                                <!-- Espaço para gráfico de cobertura -->
                                 <img src="https://via.placeholder.com/500x200?text=Gráfico+de+Cobertura+Vacinal" class="img-fluid" alt="Gráfico de Cobertura">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <h6><i class="fas fa-calendar-alt mr-2"></i>Campanhas por Mês</h6>
                             <div class="chart-container" style="height: 200px;">
-                                <!-- Espaço para gráfico de campanhas -->
                                 <img src="https://via.placeholder.com/500x200?text=Gráfico+de+Campanhas" class="img-fluid" alt="Gráfico de Campanhas">
                             </div>
                         </div>

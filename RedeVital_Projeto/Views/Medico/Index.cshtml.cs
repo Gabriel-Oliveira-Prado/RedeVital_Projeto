@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RedeVital_Projeto.Views.Home
+namespace RedeVital_Projeto.Views.Medico
 {
-    public class PacienteModel : PageModel
+    public class IndexModel : PageModel
     {
         public void OnGet()
         {

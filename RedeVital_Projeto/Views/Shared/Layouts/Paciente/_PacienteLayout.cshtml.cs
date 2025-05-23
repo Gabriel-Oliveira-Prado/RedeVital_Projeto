@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RedeVital_Projeto.Views.Home
+namespace RedeVital_Projeto.Views.Shared.Layouts.Paciente
 {
-    public class LoginModel : PageModel
+    public class _PacienteLayoutModel : PageModel
     {
         public void OnGet()
         {

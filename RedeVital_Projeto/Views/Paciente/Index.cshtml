@@ -1,0 +1,560 @@
+﻿@page
+@model RedeVital_Projeto.Views.Paciente.IndexModel
+@{
+    Layout = "~/Views/Shared/Layouts/Paciente/_PacienteLayout.cshtml";
+}
+<div class="patient-container">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    </head>
+    <style>
+        
+
+    </style>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <h1 class="mt-4">Encontre Postos de Saúde em Paulista/PE</h1>
+                <div class="row mt-4">
+                    <div class="col-xl-12 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Mapa de Unidades de Saúde</h6>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-download"></i> Exportar
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#" id="exportPDF"><i class="fas fa-file-pdf"></i> PDF</a></li>
+                                        <li><a class="dropdown-item" href="#" id="exportPrint"><i class="fas fa-print"></i> Imprimir</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="map-container">
+                                    <iframe id="map"
+                                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68947.33452031827!2d-34.89245974340726!3d-7.9407846641662765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spostos%20de%20sa%C3%BAde%20em%20paulista%20pernambuco!5e0!3m2!1spt-BR!2sbr!4v1747342870685!5m2!1spt-BR!2sbr"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+
+                                    <div class="search-container">
+                                        <div class="search-bar">
+                                            <input type="text" id="addressInput" placeholder="Digite seu endereço em Paulista...">
+                                            <button id="searchButton"><i class="fas fa-search"></i></button>
+                                        </div>
+                                        <div class="filter-tags">
+                                            <div class="tag active" data-filter="all">Todos</div>
+                                            <div class="tag" data-filter="24h">Postos 24h</div>
+                                            <div class="tag" data-filter="pharmacy">Farmácia Popular</div>
+                                            <div class="tag" data-filter="emergency">UPAs</div>
+                                            <div class="tag" data-filter="pediatrics">Pediatria</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="floating-buttons">
+                                        <div class="floating-btn" id="locateMe">
+                                            <i class="fas fa-location-arrow"></i>
+                                        </div>
+                                        <div class="floating-btn emergency" id="findEmergency">
+                                            <i class="fas fa-ambulance"></i>
+                                        </div>
+                                        <div class="floating-btn" id="findPharmacies">
+                                            <i class="fas fa-prescription-bottle-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Recursos Úteis</h6>
+                            </div>
+                            <div class="card-body health-resources">
+                                <div class="resource-section">
+                                    <h3><i class="fas fa-info-circle mr-2"></i>Informações Importantes</h3>
+                                    <div class="resource-item">
+                                        <i class="fas fa-calendar-check"></i>
+                                        <span>Agendar Consulta via SUS Digital</span>
+                                    </div>
+                                    <div class="resource-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Documentos necessários: Cartão SUS, RG</span>
+                                    </div>
+                                    <div class="resource-item">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>Disque Saúde: 136 | SAMU: 192</span>
+                                    </div>
+                                </div>
+
+                                <div class="resource-section">
+                                    <h3><i class="fas fa-lightbulb mr-2"></i>Dicas Rápidas</h3>
+                                    <div class="resource-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Menos filas: 7h-9h ou após 15h</span>
+                                    </div>
+                                    <div class="resource-item">
+                                        <i class="fas fa-user-friends"></i>
+                                        <span>Leve acompanhante se for idoso ou criança</span>
+                                    </div>
+                                </div>
+
+                                <div class="resource-section">
+                                    <h3><i class="fas fa-map-marked-alt mr-2"></i>Como Chegar</h3>
+                                    <div class="resource-item">
+                                        <i class="fas fa-bus"></i>
+                                        <span>Linhas de ônibus: 120, 345, 780 passam pelos postos centrais</span>
+                                    </div>
+                                    <div class="resource-item">
+                                        <i class="fas fa-car"></i>
+                                        <span>Estacionamento gratuito em algumas unidades</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Unidades de Saúde em Paulista</h6>
+                                <button class="btn btn-sm btn-primary" id="refreshUnits">
+                                    <i class="fas fa-sync-alt"></i> Atualizar
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Buscar unidade..." id="searchUnit">
+                                    <button class="btn btn-outline-secondary" type="button" id="buttonSearchUnit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+
+                                <div class="unit-list">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action unit-item"
+                                           onclick="openLocationModal('UPA Paulista', 'Av. Cláudio Gueiros Leite, 2196 - Centro, Paulista - PE', '(81) 3433-4040', true, '24 horas', 'Atendimento de emergência, Pronto-socorro', 4.2, 56)">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">UPA Paulista</h5>
+                                                <div>
+                                                    <span class="badge bg-success badge-status">Aberto</span>
+                                                    <small class="text-muted">0.8 km</small>
+                                                </div>
+                                            </div>
+                                            <p class="mb-1">Av. Cláudio Gueiros Leite, 2196 - Centro</p>
+                                            <small><i class="fas fa-procedures"></i> Emergência • <i class="fas fa-clock"></i> 24h</small>
+                                        </a>
+
+                                        <a href="#" class="list-group-item list-group-item-action unit-item"
+                                           onclick="openLocationModal('PSF Arthur Lundgren I', 'Rua do Futuro, 100 - Arthur Lundgren I, Paulista - PE', '(81) 3433-5000', true, '07:00 - 17:00', 'Consulta básica, Vacinação, Pré-natal', 4.0, 42)">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">PSF Arthur Lundgren I</h5>
+                                                <div>
+                                                    <span class="badge bg-success badge-status">Aberto</span>
+                                                    <small class="text-muted">1.2 km</small>
+                                                </div>
+                                            </div>
+                                            <p class="mb-1">Rua do Futuro, 100 - Arthur Lundgren I</p>
+                                            <small><i class="fas fa-stethoscope"></i> Consultas • <i class="fas fa-baby"></i> Pediatria</small>
+                                        </a>
+
+                                        <a href="#" class="list-group-item list-group-item-action unit-item"
+                                           onclick="openLocationModal('Farmácia Popular', 'Av. Marechal Floriano Peixoto, 511 - Centro, Paulista - PE', '(81) 3433-6000', false, '08:00 - 18:00', 'Medicamentos gratuitos', 4.1, 38)">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">Farmácia Popular</h5>
+                                                <div>
+                                                    <span class="badge bg-danger badge-status">Fecha 18h</span>
+                                                    <small class="text-muted">1.5 km</small>
+                                                </div>
+                                            </div>
+                                            <p class="mb-1">Av. Marechal Floriano Peixoto, 511 - Centro</p>
+                                            <small><i class="fas fa-pills"></i> Medicamentos • <i class="fas fa-tag"></i> Popular</small>
+                                        </a>
+
+                                        <a href="#" class="list-group-item list-group-item-action unit-item"
+                                           onclick="openLocationModal('PSF Maria Arruda', 'Rua da Paz, 300 - Maria Arruda, Paulista - PE', '(81) 3433-7000', true, '07:00 - 17:00', 'Consulta básica, Curativos, Vacinação', 3.9, 35)">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">PSF Maria Arruda</h5>
+                                                <div>
+                                                    <span class="badge bg-success badge-status">Aberto</span>
+                                                    <small class="text-muted">2.1 km</small>
+                                                </div>
+                                            </div>
+                                            <p class="mb-1">Rua da Paz, 300 - Maria Arruda</p>
+                                            <small><i class="fas fa-stethoscope"></i> Consultas • <i class="fas fa-syringe"></i> Vacinas</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-danger text-white">
+                                <h6 class="m-0 font-weight-bold"><i class="fas fa-exclamation-triangle"></i> Atendimento de Emergência 24h</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="alert alert-danger" role="alert">
+                                            <h5 class="alert-heading">UPA Paulista</h5>
+                                            <p>Av. Cláudio Gueiros Leite, 2196 - Centro</p>
+                                            <hr>
+                                            <p class="mb-0"><i class="fas fa-phone"></i> (81) 3433-4040</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="alert alert-danger" role="alert">
+                                            <h5 class="alert-heading">Hospital Municipal</h5>
+                                            <p>Rua do Sol, 100 - Centro</p>
+                                            <hr>
+                                            <p class="mb-0"><i class="fas fa-phone"></i> (81) 3433-5050</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="alert alert-danger" role="alert">
+                                            <h5 class="alert-heading">Contatos de Emergência</h5>
+                                            <ul class="mb-1">
+                                                <li>SAMU: 192</li>
+                                                <li>Bombeiros: 193</li>
+                                                <li>Polícia: 190</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="locationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Posto de Saúde</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div class="rating" id="modalRating"></div>
+
+            <div class="info-row">
+                <div class="info-label">Endereço:</div>
+                <div id="modalAddress">Endereço</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Telefone:</div>
+                <div id="modalPhone">Telefone</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Horário:</div>
+                <div id="modalHours">Horário</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Serviços:</div>
+                <div id="modalServices">Serviços</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Como chegar:</div>
+                <div id="modalTransport">
+                    <span class="badge bg-info text-dark me-1"><i class="fas fa-bus"></i> Linhas 120, 345</span>
+                    <span class="badge bg-info text-dark"><i class="fas fa-subway"></i> Estação mais próxima: 1km</span>
+                </div>
+            </div>
+
+            <button class="action-btn route" id="getDirections">
+                <i class="fas fa-route"></i> Traçar Rota no Mapa
+            </button>
+
+            <button class="action-btn" id="callLocation">
+                <i class="fas fa-phone"></i> Ligar para o Posto
+            </button>
+
+            <button class="action-btn" style="background-color: #f6c23e;" id="scheduleAppointment">
+                <i class="fas fa-calendar-alt"></i> Agendar Consulta
+            </button>
+
+            <div class="mt-3">
+                <small class="text-muted">Última atualização: <span id="updateDate">05/06/2025</span></small>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const paulistaHealthUnits = [
+            {
+                id: 1,
+                name: "UPA Paulista",
+                address: "Av. Cláudio Gueiros Leite, 2196 - Centro, Paulista - PE",
+                phone: "(81) 3433-4040",
+                hours: "24 horas",
+                services: "Atendimento de emergência, Pronto-socorro",
+                rating: 4.2,
+                reviews: 56,
+                openNow: true,
+                position: "-7.94078,-34.89246",
+                transport: "Linhas de ônibus: 120, 345 | Estacionamento gratuito",
+                updated: "05/06/2025"
+            },
+            {
+                id: 2,
+                name: "PSF Arthur Lundgren I",
+                address: "Rua do Futuro, 100 - Arthur Lundgren I, Paulista - PE",
+                phone: "(81) 3433-5000",
+                hours: "07:00 - 17:00",
+                services: "Consulta básica, Vacinação, Pré-natal",
+                rating: 4.0,
+                reviews: 42,
+                openNow: true,
+                position: "-7.93500,-34.88000",
+                transport: "Linhas de ônibus: 780, 245 | Estacionamento limitado",
+                updated: "04/06/2025"
+            },
+            {
+                id: 3,
+                name: "Farmácia Popular",
+                address: "Av. Marechal Floriano Peixoto, 511 - Centro, Paulista - PE",
+                phone: "(81) 3433-6000",
+                hours: "08:00 - 18:00",
+                services: "Medicamentos gratuitos",
+                rating: 4.1,
+                reviews: 38,
+                openNow: false,
+                position: "-7.94500,-34.88500",
+                transport: "Linhas de ônibus: 120, 450 | Estacionamento pago próximo",
+                updated: "03/06/2025"
+            },
+            {
+                id: 4,
+                name: "PSF Maria Arruda",
+                address: "Rua da Paz, 300 - Maria Arruda, Paulista - PE",
+                phone: "(81) 3433-7000",
+                hours: "07:00 - 17:00",
+                services: "Consulta básica, Curativos, Vacinação",
+                rating: 3.9,
+                reviews: 35,
+                openNow: true,
+                position: "-7.93800,-34.87500",
+                transport: "Linhas de ônibus: 560, 320 | Estacionamento gratuito",
+                updated: "02/06/2025"
+            }
+        ];
+
+        // Função para abrir o modal com informações da unidade
+        function openLocationModal(name, address, phone, openNow, hours, services, rating, reviews) {
+            // Encontra a unidade completa nos dados
+            const unit = paulistaHealthUnits.find(u => u.name === name);
+
+            // Preenche o modal com as informações
+            document.getElementById("modalTitle").textContent = name;
+            document.getElementById("modalAddress").textContent = address;
+            document.getElementById("modalPhone").textContent = phone;
+            document.getElementById("updateDate").textContent = unit ? unit.updated : "05/06/2025";
+
+            const hoursElement = document.getElementById("modalHours");
+            hoursElement.innerHTML = openNow
+                ? `<strong class="text-success">Aberto agora</strong> (${hours})`
+                : `<strong class="text-danger">Fechado</strong> (${hours})`;
+
+            document.getElementById("modalServices").textContent = services;
+
+            if (unit && unit.transport) {
+                const transportBadges = unit.transport.split("|").map(item =>
+                    `<span class="badge bg-info text-dark me-1">${item.trim()}</span>`
+                ).join("");
+                document.getElementById("modalTransport").innerHTML = transportBadges;
+            }
+
+            // Atualiza avaliações
+            const ratingElement = document.getElementById("modalRating");
+            ratingElement.innerHTML = '';
+
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+
+            for (let i = 0; i < fullStars; i++) {
+                ratingElement.innerHTML += '<i class="fas fa-star"></i>';
+            }
+
+            if (hasHalfStar) {
+                ratingElement.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+            }
+
+            for (let i = 0; i < 5 - fullStars - (hasHalfStar ? 1 : 0); i++) {
+                ratingElement.innerHTML += '<i class="far fa-star"></i>';
+            }
+
+            ratingElement.innerHTML += `<span> ${rating.toFixed(1)} (${reviews} avaliações)</span>`;
+
+            // Configura botões de ação
+            if (unit) {
+                document.getElementById("getDirections").onclick = () => {
+                    window.open(`https://www.google.com/maps/dir/?api=1&destination=${unit.position}`);
+                };
+
+                document.getElementById("callLocation").onclick = () => {
+                    window.location.href = `tel:${phone.replace(/\D/g, '')}`;
+                };
+
+                document.getElementById("scheduleAppointment").onclick = () => {
+                    if (unit.name.includes("Farmácia")) {
+                        alert("Para farmácias, não é necessário agendamento. Dirija-se à unidade durante o horário de funcionamento.");
+                    } else {
+                        window.open("https://susdigital.saude.gov.br/agendamento");
+                    }
+                };
+            }
+
+            // Abre o modal
+            document.getElementById("locationModal").style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById("locationModal").style.display = 'none';
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById("locationModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Configura filtros
+        document.querySelectorAll(".tag").forEach(tag => {
+            tag.addEventListener("click", function() {
+                document.querySelectorAll(".tag").forEach(t => t.classList.remove("active"));
+                this.classList.add("active");
+
+                const filter = this.dataset.filter;
+                updateMapWithFilter(filter);
+            });
+        });
+
+        // Atualiza o mapa com base no filtro selecionado
+        function updateMapWithFilter(filter) {
+            const iframe = document.getElementById("map");
+            let searchQuery = "postos+de+saúde+em+paulista+pernambuco";
+
+            switch(filter) {
+                case "24h":
+                    searchQuery = "upa+24h+em+paulista+pernambuco";
+                    break;
+                case "pharmacy":
+                    searchQuery = "farmácia+popular+em+paulista+pernambuco";
+                    break;
+                case "emergency":
+                    searchQuery = "emergência+médica+em+paulista+pernambuco";
+                    break;
+                case "pediatrics":
+                    searchQuery = "posto+de+saúde+pediátrico+em+paulista+pernambuco";
+                    break;
+            }
+
+            iframe.src = `https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68947.33452031827!2d-34.89245974340726!3d-7.9407846641662765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s${searchQuery}!5e0!3m2!1spt-BR!2sbr!4v1747342870685!5m2!1spt-BR!2sbr`;
+        }
+
+        // Botão de localização
+        document.getElementById("locateMe").addEventListener("click", function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const iframe = document.getElementById("map");
+                        iframe.src = `https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68947.33452031827!2d-34.89245974340726!3d-7.9407846641662765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spostos+de+saúde+em+paulista+pernambuco!5e0!3m2!1spt-BR!2sbr!4v1747342870685!5m2!1spt-BR!2sbr&center=${position.coords.latitude},${position.coords.longitude}&zoom=15`;
+                    },
+                    (error) => {
+                        alert("Para ver sua localização no mapa, clique no botão de GPS no canto inferior direito do mapa do Google.");
+                    }
+                );
+            } else {
+                alert("Seu navegador não suporta geolocalização.");
+            }
+        });
+
+        // Botão de emergência
+        document.getElementById("findEmergency").addEventListener("click", function() {
+            updateMapWithFilter("emergency");
+        });
+
+        // Botão de farmácias
+        document.getElementById("findPharmacies").addEventListener("click", function() {
+            updateMapWithFilter("pharmacy");
+        });
+
+        // Busca por endereço
+        document.getElementById("searchButton").addEventListener("click", searchAddress);
+        document.getElementById("addressInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") searchAddress();
+        });
+
+        function searchAddress() {
+            const address = document.getElementById("addressInput").value;
+            if (address.trim() !== "") {
+                const iframe = document.getElementById("map");
+                const encodedAddress = encodeURIComponent(address + ", Paulista - PE");
+                iframe.src = `https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d68947.33452031827!2d-34.89245974340726!3d-7.9407846641662765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s${encodedAddress}!5e0!3m2!1spt-BR!2sbr!4v1747342870685!5m2!1spt-BR!2sbr`;
+            }
+        }
+
+        // Busca na lista de unidades
+        document.getElementById("buttonSearchUnit").addEventListener("click", searchUnits);
+        document.getElementById("searchUnit").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") searchUnits();
+        });
+
+        function searchUnits() {
+            const searchTerm = document.getElementById("searchUnit").value.toLowerCase();
+            const unitItems = document.querySelectorAll(".unit-item");
+
+            unitItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        // Botão de atualizar
+        document.getElementById("refreshUnits").addEventListener("click", function() {
+            alert("Lista de unidades atualizada!");
+            document.getElementById("searchUnit").value = "";
+            document.querySelectorAll(".unit-item").forEach(item => {
+                item.style.display = "block";
+            });
+        });
+
+        // Exportar para PDF
+        document.getElementById("exportPDF").addEventListener("click", function(e) {
+            e.preventDefault();
+            alert("Funcionalidade de exportar para PDF será implementada aqui");
+            // Em produção, integrar com uma biblioteca como jsPDF ou similar
+        });
+
+        // Imprimir
+        document.getElementById("exportPrint").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
+</div>

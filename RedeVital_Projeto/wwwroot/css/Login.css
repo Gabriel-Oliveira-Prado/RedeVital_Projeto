@@ -1,4 +1,5 @@
-﻿* {
+﻿/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,17 +10,32 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* Background Pattern */
+.fundo {
+    width: 100%;
+    height: 100%;
+    --color: #E1E1E1;
+    background-color: #F3F3F3;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
+}
+
+/* Layout Container */
 .container {
     display: flex;
     height: 100vh;
+    background-color: #f4f4f4;
 }
 
 .image-side {
-    background-image: url('Rede Vital.png');
-    background-size: cover;
+    background-image: url('../img/wireframe rede vital.jpg');
     background-position: center;
-    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 55%;
     height: 100vh;
+    object-fit: contain;
+    margin: 0 0 0 20px;
 }
 
 .login-side {
@@ -30,11 +46,12 @@ body, html {
     background-color: #f4f4f4;
 }
 
+/* Login Box Styles */
 .login-box {
     width: 80%;
     max-width: 400px;
     padding: 30px;
-    background: #30705f;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -86,277 +103,7 @@ body, html {
     }
 }
 
-/* Login */
-
-/*  */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-    width: 100%;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    position: relative;
-}
-
-    .form:hover {
-        box-shadow: 0 0 25px #9DD4C5;
-        transform: scale(1.01);
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-.title {
-    font-size: 28px;
-    color: #30705f;
-    font-weight: 600;
-    letter-spacing: -1px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-}
-
-    .title::before, .title::after {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        left: 0px;
-        background-color: #BDEADB;
-    }
-
-    .title::before {
-        width: 18px;
-        height: 18px;
-        background-color: #9DD4C5;
-    }
-
-    .title::after {
-        width: 18px;
-        height: 18px;
-        animation: pulse 1s linear infinite;
-    }
-
-.message, .signin {
-    color: rgba(88, 87, 87, 0.822);
-    font-size: 14px;
-}
-
-.p.line {
-    font-size: 16px;
-    color: #000;
-    font-weight: bold; /* negrito */
-    line-height: 1.5;
-    padding-left: 10px;
-    margin: 10px 0;
-}
-
-
-.signin {
-    text-align: center;
-}
-
-    .signin a {
-        color: #30705f;
-    }
-
-        .signin a:hover {
-            text-decoration: underline #9DD4C5;
-        }
-
-.flex {
-    display: flex;
-    width: 100%;
-    gap: 6px;
-}
-
-.form label {
-    position: relative;
-}
-
-    .form label .input {
-        width: 100%;
-        padding: 10px 10px 20px 10px;
-        outline: 0;
-        border: 1px solid rgba(105, 105, 105, 0.397);
-        border-radius: 10px;
-    }
-
-        .form label .input + span {
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            color: grey;
-            font-size: 0.9em;
-            cursor: text;
-            transition: 0.3s ease;
-        }
-
-        .form label .input:placeholder-shown + span {
-            top: 15px;
-            font-size: 0.9em;
-        }
-
-        .form label .input:focus + span, .form label .input:valid + span {
-            top: 30px;
-            font-size: 0.7em;
-            font-weight: 600;
-        }
-
-        .form label .input:valid + span {
-            color: #30705f;
-        }
-
-.submit {
-    border: none;
-    outline: none;
-    background-color: #9DD4C5;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    transform: .3s ease;
-}
-
-    .submit:hover {
-        background-color: #30705f;
-    }
-
-@keyframes pulse {
-    from {
-        transform: scale(0.9);
-        opacity: 1;
-    }
-
-    to {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-.p {
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-.btn {
-    margin-top: 10px;
-    width: 100%;
-    height: 50px;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    gap: 10px;
-    border: 1px solid #ededef;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
-    .btn:hover {
-        border: 1px solid #30705f;
-    }
-
-.fundo {
-    width: 100%;
-    height: 100%;
-    --color: #E1E1E1;
-    background-color: #F3F3F3;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.image-side {
-    background-image: url('../img/wireframe rede vital.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 55%;
-    height: 100vh;
-    object-fit: contain;
-    margin: 0 0 0 20px;
-}
-
-
-.login-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-}
-
-.login-box {
-    width: 80%;
-    max-width: 400px;
-    padding: 30px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-    .login-box h2 {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .login-box label {
-        display: block;
-        margin: 10px 0 5px;
-    }
-
-    .login-box input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        k
-    }
-
-    .login-box button {
-        width: 100%;
-        padding: 10px;
-        background-color: #343a40;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-        .login-box button:hover {
-            background-color: #23272b;
-        }
-
-/* Login */
-
-/* */
+/* Form Styles */
 .form {
     display: flex;
     flex-direction: column;
@@ -413,6 +160,15 @@ body, html {
     font-size: 14px;
 }
 
+.p.line {
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    line-height: 1.5;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
 .signin {
     text-align: center;
 }
@@ -431,6 +187,7 @@ body, html {
     gap: 6px;
 }
 
+/* Input Styles */
 .form label {
     position: relative;
 }
@@ -458,7 +215,8 @@ body, html {
             font-size: 0.9em;
         }
 
-        .form label .input:focus + span, .form label .input:valid + span {
+        .form label .input:focus + span,
+        .form label .input:valid + span {
             top: 30px;
             font-size: 0.7em;
             font-weight: 600;
@@ -468,6 +226,7 @@ body, html {
             color: green;
         }
 
+/* Button Styles */
 .submit {
     border: none;
     outline: none;
@@ -482,25 +241,6 @@ body, html {
     .submit:hover {
         background-color: #9DD4C5;
     }
-
-@keyframes pulse {
-    from {
-        transform: scale(0.9);
-        opacity: 1;
-    }
-
-    to {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-.p {
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    margin: 5px 0;
-}
 
 .btn {
     margin-top: 10px;
@@ -522,24 +262,7 @@ body, html {
         border: 1px solid #9DD4C5;
     }
 
-.flex-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-    .flex-row .span {
-        font-size: 14px;
-        color: rgba(88, 87, 87, 0.822);
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-        .flex-row .span:hover {
-            color: #9DD4C5;
-        }
-
-/* Novo estilo para o rádio estilizado */
+/* Radio Button Styles */
 .radio-container {
     display: flex;
     align-items: center;
@@ -551,14 +274,19 @@ body, html {
     color: rgba(88, 87, 87, 0.822);
 }
 
-    /* Esconde o rádio padrão */
     .radio-container input[type="radio"] {
         position: absolute;
         opacity: 0;
         cursor: pointer;
     }
+.hidden-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
 
-/* Círculo base */
 .radiomark {
     height: 1.3em;
     width: 1.3em;
@@ -569,12 +297,10 @@ body, html {
     position: relative;
 }
 
-
 .radio-container input:checked ~ .radiomark {
     transform: scale(1.2);
     animation: pulse 0.6s ease-in-out forwards;
 }
-
 
 .radiomark::after {
     content: "";
@@ -592,6 +318,36 @@ body, html {
     display: block;
 }
 
+/* Flex Row Styles */
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .flex-row .span {
+        font-size: 14px;
+        color: rgba(88, 87, 87, 0.822);
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+        .flex-row .span:hover {
+            color: #9DD4C5;
+        }
+
+/* Animations */
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
 
 @keyframes pulse {
     0% {
@@ -606,3 +362,11 @@ body, html {
         transform: scale(1.2);
     }
 }
+
+.p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin: 5px 0;
+}
+

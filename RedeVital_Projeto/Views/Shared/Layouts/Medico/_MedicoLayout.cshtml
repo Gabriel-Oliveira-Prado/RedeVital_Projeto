@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["RedeVital"] - RedeVital</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Layouts/Medico/_MedicoLayout.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RedeVital_Projeto.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <div class="main-container d-flex">
+        <div class="sidebar" id="sidebar">
+            <div class="-flex align-items-center sidebar-header">
+                <img src="/img/REDEVITAL_LOGO-nobackground.png" alt="Logo" class="me-2">
+                <span class="logoname">RedeVital</span>
+            </div>
+
+            <div class="sidebar-content p-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Medico/Index">
+                            <i class="fas fa-tachometer-alt"></i> DashBoard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Medico/Vacinas">
+                            <i class="fas fa-syringe"></i> Vacinas/Remédios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Agenda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-file-medical"></i> Prontuário
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-lightbulb"></i> Lumi
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-user"></i> Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-cog"></i> Configurações
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fas fa-question-circle"></i> Ajuda
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="nav-item">
+                        <button class="btn-logout">
+                            <a class="btn-logout" asp-controller="Login" asp-action="Login">
+                                <i class="fas fa-sign-out-alt"></i> Sair
+                            </a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content flex-grow-1">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-light box-shadow">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler sidebar-toggle" type="button" id="sidebarToggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="navbar-content">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="search-bar">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" placeholder="Buscar...">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <button class="action-btn">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <button class="action-btn position-relative">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                                </button>
+                                <button class="action-btn position-relative">
+                                    <i class="fas fa-comment-dots"></i>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">5</span>
+                                </button>
+
+                                <div class="user-card">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="user-info d-none d-md-block">
+                                        <div class="user-name">Carlos hamburguer</div>
+                                        <div class="user-email">Carlos.hamburguer@example.com</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="content-wrap">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <footer class="footer mt-auto py-3">
+                <div class="container">
+                    &copy; 2025 - RedeVital - <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('sidebarToggle');
+
+            if (window.innerWidth <= 991.98 &&
+                !sidebar.contains(event.target) &&
+                !toggleBtn.contains(event.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
