@@ -1,0 +1,295 @@
+﻿/* ========================================
+   VARIÁVEIS DE COR - BBTS
+   ======================================== */
+:root {
+    --brand-color-primary-pure: #465EFF;
+    --brand-color-primary-light: #C2D6FF;
+    --brand-color-primary-dark: #262E89;
+    --brand-color-secondary-pure: #FCFC30;
+    --brand-color-secondary-light: #FAFEC3;
+    --brand-color-secondary-dark: #C9A905;
+    --highlight-color: #54DCFC;
+    --neutral-color-lightest: #FAFAFA;
+    --neutral-color-lighter: #E4E4E7;
+    --neutral-color-light: #D4D4D8;
+    --neutral-color-medium: #71717B;
+    --neutral-color-dark: #3F3F46;
+    --neutral-color-darker: #27272A;
+    --neutral-color-darkest: #09090B;
+    --feedback-color-success: #23D80A;
+    --feedback-color-warning: #F99207;
+    --feedback-color-danger: #FF2E3B;
+    --font-title: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* ========================================
+   ESTILOS GERAIS
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--neutral-color-darker);
+    background: linear-gradient(135deg, var(--neutral-color-lighter) 0%, #f0f4f7 100%);
+    overflow-x: hidden;
+}
+
+.content-body {
+    padding: 2rem;
+}
+
+/* ========================================
+   TÍTULOS
+   ======================================== */
+h1 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--brand-color-primary-dark);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--highlight-color);
+        border-radius: 2px;
+    }
+
+/* ========================================
+   CARDS DE ESTATÍSTICAS
+   ======================================== */
+.stats-card {
+    background: var(--neutral-color-lightest);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+    .stats-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+    }
+
+    .stats-card.primary::before {
+        background: linear-gradient(90deg, var(--brand-color-primary-pure), var(--highlight-color));
+    }
+
+    .stats-card.success::before {
+        background: linear-gradient(90deg, var(--feedback-color-success), #4ade80);
+    }
+
+    .stats-card.warning::before {
+        background: linear-gradient(90deg, var(--feedback-color-warning), #fbbf24);
+    }
+
+    .stats-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(84, 220, 252, 0.2);
+        border-color: var(--highlight-color);
+    }
+
+.stats-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--neutral-color-lightest);
+    box-shadow: 0 6px 15px rgba(84, 220, 252, 0.3);
+    margin-bottom: 1rem;
+}
+
+.stats-card.primary .stats-icon {
+    background: linear-gradient(135deg, var(--brand-color-primary-pure), var(--brand-color-primary-dark));
+}
+
+.stats-card.success .stats-icon {
+    background: linear-gradient(135deg, var(--feedback-color-success), #15803d);
+}
+
+.stats-card.warning .stats-icon {
+    background: linear-gradient(135deg, var(--feedback-color-warning), #b45309);
+}
+
+.stats-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--neutral-color-medium);
+    margin-bottom: 0.5rem;
+}
+
+.stats-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brand-color-primary-dark);
+}
+
+/* ========================================
+   CARDS DE CONTEÚDO
+   ======================================== */
+.content-card {
+    background: var(--neutral-color-lightest);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.card-header-custom {
+    background: linear-gradient(135deg, var(--brand-color-primary-pure), var(--brand-color-primary-dark));
+    padding: 1.5rem;
+}
+
+    .card-header-custom h6 {
+        color: var(--neutral-color-lightest);
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+.card-body-custom {
+    padding: 1.5rem;
+}
+
+/* ========================================
+   LISTA DE REQUISIÇÕES
+   ======================================== */
+.list-group-item-custom {
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: var(--neutral-color-lighter);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+    .list-group-item-custom:hover {
+        background: var(--neutral-color-lightest);
+        border-left-color: var(--highlight-color);
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(84, 220, 252, 0.2);
+    }
+
+    .list-group-item-custom h5 {
+        font-weight: 600;
+        color: var(--brand-color-primary-dark);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .list-group-item-custom p {
+        color: var(--neutral-color-medium);
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+    }
+
+    .list-group-item-custom small {
+        font-weight: 500;
+    }
+
+.time-badge {
+    background: linear-gradient(135deg, var(--highlight-color), var(--brand-color-primary-pure));
+    color: var(--neutral-color-lightest);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.status-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+    .status-badge.cotacao {
+        background: rgba(249, 146, 7, 0.1);
+        color: var(--feedback-color-warning);
+    }
+
+    .status-badge.contratada {
+        background: rgba(35, 216, 10, 0.1);
+        color: var(--feedback-color-success);
+    }
+
+    .status-badge.atrasada {
+        background: rgba(255, 46, 59, 0.1);
+        color: var(--feedback-color-danger);
+    }
+
+/* ========================================
+   ALERTAS PERSONALIZADOS
+   ======================================== */
+.alert-custom {
+    border-radius: 15px;
+    border: none;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid;
+}
+
+    .alert-custom.warning {
+        background: rgba(249, 146, 7, 0.1);
+        border-left-color: var(--feedback-color-warning);
+    }
+
+    .alert-custom.danger {
+        background: rgba(255, 46, 59, 0.1);
+        border-left-color: var(--feedback-color-danger);
+    }
+
+    .alert-custom.info {
+        background: rgba(84, 220, 252, 0.1);
+        border-left-color: var(--highlight-color);
+    }
+
+    .alert-custom strong {
+        font-weight: 700;
+        color: var(--brand-color-primary-dark);
+    }
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .stats-value {
+        font-size: 2rem;
+    }
+
+    .stats-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}

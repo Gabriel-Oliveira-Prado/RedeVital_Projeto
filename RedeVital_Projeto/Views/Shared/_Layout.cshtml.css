@@ -1,479 +1,246 @@
-﻿/* Main Styles */
+﻿/* ========================================
+   ESTILOS GERAIS DO LAYOUT
+   ======================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    margin: 0;
-    padding: 0;
-}
-
-.logoname {
-    color: #9DD4C5;
-    font-weight: 600;
-    margin: 0;
-    font-size: 25px;
-}
-
-img {
-    width: 60px;
+    overflow-x: hidden;
 }
 
 .main-container {
     min-height: 100vh;
-    display: flex;
+    background-color: var(--neutral-color-lighter);
 }
 
-/* Navbar Styles with #9DD4C5 border */
-.navbar {
-    background-color: white !important;
-    border-bottom: 2px solid #9DD4C5 !important;
-    padding: 0.5rem 1rem;
+/* ========================================
+   SIDEBAR
+   ======================================== */
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    background-color: var(--brand-color-primary-dark);
+    color: var(--neutral-color-lightest);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-content {
+    .sidebar.show {
+        margin-left: 0;
+    }
+
+.sidebar-header {
+    padding: 1.5rem 1rem;
     display: flex;
-    justify-content: flex-end !important;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .sidebar-header .logo-bbts {
+        max-width: 150px;
+        height: auto;
+    }
+
+.sidebar-content {
+    flex-grow: 1;
+    padding-top: 1rem;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar .nav-link {
+    color: var(--neutral-color-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+    .sidebar .nav-link i {
+        margin-right: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .sidebar .nav-link:hover,
+    .sidebar .nav-item.active .nav-link {
+        background-color: var(--brand-color-primary-pure);
+        color: var(--neutral-color-lightest);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+.sidebar .divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+}
+
+.sidebar .btn-logout {
+    background-color: var(--feedback-color-danger);
+    color: var(--neutral-color-lightest);
+    border: none;
     width: 100%;
+    text-align: left;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+    .sidebar .btn-logout:hover {
+        background-color: #dc3545;
+    }
+
+    .sidebar .btn-logout i {
+        margin-right: 1rem;
+    }
+
+/* ========================================
+   MAIN CONTENT & NAVBAR
+   ======================================== */
+.main-content {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar {
+    background-color: var(--neutral-color-lightest);
+    border-bottom: 1px solid var(--neutral-color-lighter);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-toggler {
     border: none;
-    font-size: 1.25rem;
-    color: #495057;
+    color: var(--brand-color-primary-dark);
+    font-size: 1.5rem;
 }
 
-/* Sidebar Styles with #9DD4C5 border */
-.sidebar {
-    width: 250px;
-    min-height: 100vh;
-    background-color: #ffffff;
-    transition: transform 0.3s ease;
-    border-right: 2px solid #9DD4C5 !important;
-    z-index: 1000;
-}
-
-.sidebar-header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e9ecef;
-    display: flex;
-}
-
-<<<<<<< HEAD
-.sidebar-header h3 {
-    color: #9DD4C5;
-    font-weight: 600;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-=======
-.logoname {
-    color: #9DD4C5;
-    font-weight: 600;
-    margin: 0;
-    font-size: 25px;
-}
-
-img {
-    width: 60px;
-}
-
-> > > > > > > c3bfab34043bfd67eb27090656e712e7a1b2b021
-
-.sidebar-content {
-    padding: 1rem 0;
-}
-
-/* Menu Links */
-.sidebar .nav-item a.nav-link {
-    color: #9DD4C5 !important;
-    padding: 0.75rem 1.5rem;
-    margin: 0.1rem 0;
-    font-weight: 500;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    text-decoration: none !important;
-}
-
-    .sidebar .nav-item a.nav-link:hover {
-        color: #7bb8a8 !important;
-        background-color: rgba(157, 212, 197, 0.1) !important;
+    .navbar-toggler:focus {
+        box-shadow: none;
     }
 
-    .sidebar .nav-item a.nav-link i {
-        width: 24px;
-        text-align: center;
-        margin-right: 12px;
-        font-size: 1rem;
-        color: inherit !important;
+.search-bar .form-control {
+    border-radius: 20px;
+    border-color: var(--neutral-color-light);
+    padding-left: 1.5rem;
+}
+
+    .search-bar .form-control:focus {
+        box-shadow: none;
+        border-color: var(--highlight-color);
     }
 
-.divider {
-    border-top: 1px solid #e9ecef;
-    margin: 1rem 1.5rem;
+.search-bar .btn-outline-secondary {
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-color: var(--neutral-color-light);
+    color: var(--neutral-color-medium);
 }
 
-/* Main Content */
-.main-content {
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.content-wrap {
-    flex: 1;
-    padding: 1.5rem;
-}
-
-/* Other Components */
-.search-bar {
-    width: 250px;
-    margin-right: 1rem;
-}
+    .search-bar .btn-outline-secondary:hover {
+        background-color: var(--brand-color-primary-light);
+        color: var(--brand-color-primary-dark);
+        border-color: var(--brand-color-primary-light);
+    }
 
 .action-btn {
     background: none;
     border: none;
-    color: #6c757d;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    color: var(--neutral-color-medium);
     padding: 0.5rem;
-    transition: color 0.2s;
-    position: relative;
-    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
     .action-btn:hover {
-        color: #0d6efd;
+        background-color: var(--neutral-color-lighter);
+        color: var(--brand-color-primary-dark);
     }
 
 .user-card {
     display: flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    transition: all 0.2s;
+    gap: 0.75rem;
     cursor: pointer;
 }
 
 .user-avatar {
-    width: 36px;
-    height: 36px;
-    background-color: #9DD4C5;
-    color: white;
+    width: 40px;
+    height: 40px;
+    background-color: var(--brand-color-primary-pure);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    margin-right: 0.75rem;
+    color: var(--neutral-color-lightest);
+    font-size: 1.2rem;
 }
 
-/* Red Logout Button */
-.btn-logout {
-    background: none;
-    border: none;
-    color: #dc3545 !important; /* Red color */
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    text-align: left;
-    font-weight: 500;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
+.user-info .user-name {
+    font-weight: 600;
+    color: var(--neutral-color-darker);
 }
 
-    .btn-logout:hover {
-        color: #bb2d3b !important; /* Darker red on hover */
-        background-color: rgba(220, 53, 69, 0.1) !important;
-    }
+.user-info .user-email {
+    font-size: 0.8rem;
+    color: var(--neutral-color-medium);
+}
 
-    .btn-logout i {
-        width: 24px;
-        text-align: center;
-        margin-right: 12px;
-        font-size: 1rem;
-        color: inherit !important;
-    }
+.content-wrap {
+    padding: 1.5rem;
+    background-color: var(--neutral-color-lighter);
+    flex-grow: 1;
+}
 
-/* Footer with #9DD4C5 border */
 .footer {
-    background-color: white;
-    padding: 1rem;
+    background-color: var(--neutral-color-lightest);
+    border-top: 1px solid var(--neutral-color-lighter);
+    color: var(--neutral-color-medium);
     text-align: center;
-    color: #6c757d;
-    font-size: 0.9rem;
-    border-top: 2px solid #9DD4C5 !important;
+    padding: 1rem 0;
 }
 
-/* Responsive */
+    .footer a {
+        color: var(--brand-color-primary-pure);
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+/* ========================================
+   RESPONSIVIDADE DO LAYOUT
+   ======================================== */
 @media (max-width: 991.98px) {
     .sidebar {
+        margin-left: -250px;
         position: fixed;
-        transform: translateX(-100%);
+        height: 100%;
+        z-index: 1030;
     }
 
         .sidebar.show {
-            transform: translateX(0);
+            margin-left: 0;
         }
 
-    .search-bar {
-        width: 180px;
+    .main-content {
+        width: 100%;
     }
-}
 
-@media (max-width: 767.98px) {
+    .navbar-content {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
     .search-bar {
         display: none;
     }
-}
-/* Estilos específicos para a tela de paciente */
-.patient-container {
-    max-width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
-}
 
-    .patient-container .map-container {
-        height: 500px;
-        background-color: #ddd;
-        position: relative;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        overflow: hidden;
-    }
-
-    .patient-container #map {
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .patient-container .search-container {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        z-index: 100;
-    }
-
-    .patient-container .search-bar {
-        display: flex;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-        .patient-container .search-bar input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 14px;
-        }
-
-        .patient-container .search-bar button {
-            background-color: #4e73df;
-            color: white;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-
-    .patient-container .filter-tags {
-        display: flex;
-        overflow-x: auto;
-        gap: 8px;
-        margin-top: 10px;
-        padding-bottom: 5px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-        .patient-container .filter-tags::-webkit-scrollbar {
-            display: none;
-        }
-
-    .patient-container .tag {
-        background-color: #f8f9fc;
-        border: 1px solid #d1d3e2;
-        border-radius: 15px;
-        padding: 5px 12px;
-        font-size: 12px;
-        white-space: nowrap;
-        cursor: pointer;
-    }
-
-        .patient-container .tag.active {
-            background-color: #4e73df;
-            color: white;
-            border-color: #4e73df;
-        }
-
-    .patient-container .floating-buttons {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 99;
-    }
-
-    .patient-container .floating-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #4e73df;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        cursor: pointer;
-    }
-
-        .patient-container .floating-btn.emergency {
-            background-color: #e74a3b;
-        }
-
-    .patient-container .health-resources {
-        background-color: white;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-    }
-
-    .patient-container .resource-section {
-        margin-bottom: 20px;
-    }
-
-        .patient-container .resource-section h3 {
-            color: #4e73df;
-            font-size: 16px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-    .patient-container .resource-item {
-        display: flex;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #e3e6f0;
-    }
-
-        .patient-container .resource-item i {
-            margin-right: 10px;
-            color: #4e73df;
-            width: 20px;
-            text-align: center;
-        }
-
-    /* Modal styles */
-    .patient-container .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 1000;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    .patient-container .modal-content {
-        background-color: white;
-        width: 100%;
-        max-height: 70vh;
-        border-radius: 20px 20px 0 0;
-        padding: 20px;
-        overflow-y: auto;
-        animation: slideUp 0.3s ease;
-    }
-
-    .patient-container .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-        .patient-container .modal-header h2 {
-            color: #4e73df;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-    .patient-container .close-btn {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: #5a5c69;
-    }
-
-    .patient-container .info-row {
-        display: flex;
-        margin-bottom: 10px;
-    }
-
-    .patient-container .info-label {
-        font-weight: 600;
-        width: 100px;
-        color: #5a5c69;
-        font-size: 14px;
-    }
-
-    .patient-container .rating {
-        color: #f6c23e;
-        margin-bottom: 15px;
-    }
-
-    .patient-container .action-btn {
-        background-color: #4e73df;
-        color: white;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        width: 100%;
-        margin-top: 10px;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: center;
-    }
-
-        .patient-container .action-btn.route {
-            background-color: #1cc88a;
-        }
-
-    /* Adicionais para a lista de unidades */
-    .patient-container .unit-list {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-
-    .patient-container .unit-item {
-        transition: all 0.3s;
-    }
-
-        .patient-container .unit-item:hover {
-            background-color: #f8f9fc;
-        }
-
-    .patient-container .badge-status {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.5rem;
-    }
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-    }
-
-    to {
-        transform: translateY(0);
+    .user-info {
+        display: none !important;
     }
 }

@@ -4,79 +4,367 @@
 }
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - RedeVital</title>
+    <title>Tesselas - BBTS</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/Login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <div class="fundo">
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <div class="image-side"></div>
-            <div class="login-side">
-                <form class="form" asp-action="Login" asp-controller="Login" method="post">
+            <a class="navbar-brand fw-bold" href="#"><img src="~/img/Logo BBTS Yellow Default.svg" alt="BBTS Logo" width="86" height="86" class="me-2"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#o-que-e">O que é a BBTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aplicacoes">Aplicações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#curso">Materiais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-cta" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                    <p class="title">Login</p>
-                    <p class="message">Entre e transforme seu bem-estar.</p>
 
-                    <label>
-                        <input asp-for="Email" class="input" placeholder="" required>
-                        <span>Email</span>
-                    </label>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">  
+                    <h1 class="hero-title" data-aos="fade-up">Descubra o Futuro com a BBTS</h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Veja como a BBTS está transformando o mundo digital.</p>
+                    <a href="#" class="btn btn-hero btn-lg" data-bs-toggle="modal" data-bs-target="#loginModal" data-aos="fade-up" data-aos-delay="200">
+                        Começar Agora <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="blockchain-animation">
+                        <canvas id="blockchain-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <label>
-                        <input asp-for="Password" class="input" placeholder="" required>
-                        <span>Password</span>
-                    </label>
+    <!-- O que é Blockchain -->
+    <section id="o-que-e" class="section-what-is">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title text-center mb-5" data-aos="fade-up">O que é a BBTS?</h2>
+                    <p class="lead text-center">A BB Tecnologia e Serviços (BBTS) é a área responsável por manter a infraestrutura tecnológica do Banco do Brasil, garantindo operações seguras, eficientes e inovadoras. Suas soluções impactam desde sistemas internos até o atendimento ao cliente, promovendo transformação digital e confiabilidade em toda a instituição.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Segurança</h4>
+                                <p>Proteção de dados, monitoramento de sistemas e soluções de segurança digital para todas as operações do banco.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h4>Inovação</h4>
+                                <p>Desenvolvimento de softwares, apps e integrações que tornam os processos mais ágeis e tecnológicos.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h4>Eficiência</h4>
+                                <p>Gestão de infraestrutura e logística que garante operações contínuas e serviços de qualidade para clientes e colaboradores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="flex-row">
-                        <label class="radio-container">
-                            <input asp-for="RememberMe" type="checkbox" class="hidden-checkbox">
-                            <div class="radiomark"></div>
-                            <span>Lembre-me</span>
+
+    <!-- Aplicações Reais -->
+    <section id="aplicacoes" class="section-applications">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Aplicações Reais</h2>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="application-card" data-aos="fade-up" data-aos-delay="0">
+                            <div class="card-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4>Infraestrutura de TI</h4>
+                            <p>Gerenciamento de servidores, redes e suporte técnico para todas as unidades do Banco do Brasil.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="application-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Segurança Eletrônica</h4>
+                            <p>Proteção de dados, monitoramento de sistemas e gestão de segurança física e digital.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="application-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>Soluções Digitais</h4>
+                            <p>Desenvolvimento de softwares, apps e integração de sistemas que aprimoram a experiência do cliente.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="application-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-icon">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <h4>Logística e Operações</h4>
+                            <p>Suporte logístico para agências e centros de distribuição, garantindo eficiência operacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- Por que aprender Blockchain -->
+    <section id="por-que" class="section-why">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title text-white mb-4">Por que conhecer a BBTS?</h2>
+                    <p class="text-white-50 mb-4">A BB Tecnologia e Serviços (BBTS) é responsável por manter a infraestrutura tecnológica do Banco do Brasil e oferecer soluções inovadoras que impactam milhares de clientes. Compreender suas aplicações e processos permite profissionais e parceiros estarem alinhados com a transformação digital do setor bancário.</p>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-numb">32</div>
+                            <div class="stat-label">Centros de Distribuição gerenciados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-numb">+5MIL</div>
+                            <div class="stat-label">SKUs operacionais</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-numb">100%</div>
+                            <div class="stat-label">Suporte em tempo real</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="testimonial-box">
+                        <div class="testimonial">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">“Trabalhar com a BBTS me permitiu conhecer de perto soluções críticas para o funcionamento do Banco do Brasil e desenvolver projetos inovadores que impactam milhares de clientes.”</p>
+                            <div class="testimonial-author">
+                                <strong>Maria Oliveira</strong>
+                                <span>Engenheira de Sistemas BBTS</span>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">“A experiência na BBTS me deu a visão completa da operação tecnológica de um grande banco, incluindo segurança, logística e inovação digital.”</p>
+                            <div class="testimonial-author">
+                                <strong>João Santos</strong>
+                                <span>Analista de TI BBTS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curso / Inscrição -->
+    <section id="curso" class="section-course">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2 class="section-title">Comece sua Jornada com a BBTS</h2>
+                        <p class="section-subtitle">Inscreva-se gratuitamente e receba materiais exclusivos sobre soluções, inovação e operações da BBTS</p>
+                    </div>
+                    <div class="course-form-container" data-aos="fade-up" data-aos-delay="200">
+                        <form class="form" id="registrationForm">
+                            <p class="form-title">Registrar-se</p>
+                            <div class="input-field">
+                                <input required type="text" class="input" id="nameInput" placeholder=" ">
+                                <label class="label" for="nameInput">Nome:</label>
+                            </div>
+                            <div class="input-field">
+                                <input required type="email" class="input" id="emailInput" placeholder=" ">
+                                <label class="label" for="emailInput">Email:</label>
+                            </div>
+                            <button type="submit" class="form-submit-btn btn btn-lg w-100">Registrar-se</button>
+                            <p class="form-signin">Já possui uma conta? <a href="#">Entrar</a></p>
+                            <div id="successMessage" style="display:none; color: green; text-align: center; margin-top: 10px;">Cadastro realizado com sucesso! Você receberá nossos materiais exclusivos.</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer id="contato" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="footer-title">
+                        <a class="navbar-brand fw-bold" href="#"><img src="favicon.ico" alt="BBTS Logo" width="96" height="96" class="me-2">BBTS</a>
+                    </h5>
+                    <p class="footer-text">Fornecendo soluções tecnológicas inovadoras para o Banco do Brasil e seus clientes.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h6 class="footer-subtitle">Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#o-que-e">Sobre</a></li>
+                        <li><a href="#aplicacoes">Aplicações</a></li>
+                        <li><a href="#curso">Materiais</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h6 class="footer-subtitle">Recursos</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentação</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">Blog BBTS</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="footer-subtitle">Contato</h6>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope me-2"></i>contato@bbts.com.br</li>
+                        <li><i class="fas fa-phone me-2"></i>+55 61 99999-9999</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Brasília, DF, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="footer-copyright">&copy; 2025 BBTS. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel">Login na Tesselas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" asp-action="Login" asp-controller="Login" method="post">
+                        <p class="title">Login</p>
+                        <p class="message">Entre e transforme seu futuro.</p>
+
+                        <label>
+                            <input asp-for="Email" class="input" placeholder="" required>
+                            <span>Email</span>
                         </label>
-                        <a href="#" class="span">Esqueceu a senha?</a>
-                    </div>
 
-                    <button type="submit" class="submit">Entrar</button>
-                    <p class="signin">Não tem uma conta? <a href="#">Registrar-se</a></p>
+                        <label>
+                            <input asp-for="Password" class="input" placeholder="" type="password" required>
+                            <span>Senha</span>
+                        </label>
 
-                    <p class="p line">Ou com</p>
-
-                    <div class="login-buttons">
-                        <button type="button" class="btn google">
-                            <!-- SVG do Google -->
-                            <svg xml:space="preserve" style="enable-background:new 0 0 512 512;" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256c0-42.451,10.324-82.483,28.624-117.732l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456C103.821,274.792,107.225,292.797,113.47,309.408z" style="fill:#FBBB00;"></path>
-                            <path d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451c-12.462,58.683-45.025,109.925-90.134,146.187l-73.044-3.727l-10.338-64.535c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176z" style="fill:#518EF8;"></path>
-                            <path d="M416.253,455.624C372.396,490.901,316.666,512,256,512c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" style="fill:#28B446;"></path>
-                            <path d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276C71.23,56.123,157.06,0,256,0C318.115,0,375.068,22.126,419.404,58.936z" style="fill:#F14336;"></path>
-                            </svg>
-                            Google
-                        </button>
-
-                        <button type="button" class="btn apple">
-                            <!-- SVG da Apple -->
-                            <svg xml:space="preserve" viewBox="0 0 22.773 22.773" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                            <g>
-                            <path d="M15.769,0c0.053,0,0.106,0,0.162,0c0.13,1.606-0.483,2.806-1.228,3.675c-0.731,0.863-1.732,1.7-3.351,1.573c-0.108-1.583,0.506-2.694,1.25-3.561C13.292,0.879,14.557,0.16,15.769,0z"></path>
-                            <path d="M20.67,16.716c0,0.016,0,0.03,0,0.045c-0.455,1.378-1.104,2.559-1.896,3.655c-0.723,0.995-1.609,2.334-3.191,2.334c-1.367,0-2.275-0.879-3.676-0.903c-1.482-0.024-2.297,0.735-3.652,0.926c-0.155,0-0.31,0-0.462,0c-0.995-0.144-1.798-0.932-2.383-1.642c-1.725-2.098-3.058-4.808-3.306-8.276c0-0.34,0-0.679,0-1.019c0.105-2.482,1.311-4.5,2.914-5.478c0.846-0.52,2.009-0.963,3.304-0.765c0.555,0.086,1.122,0.276,1.619,0.464c0.471,0.181,1.06,0.502,1.618,0.485c0.378-0.011,0.754-0.208,1.135-0.347c1.116-0.403,2.21-0.865,3.652-0.648c1.733,0.262,2.963,1.032,3.723,2.22c-1.466,0.933-2.625,2.339-2.427,4.74C17.818,14.688,19.086,15.964,20.67,16.716z"></path>
-                                </g>
-                            </svg>
-                            Apple
-                        </button>
-                    </div>
-                </form>
+                        <button type="submit" class="form-submit-btn btn btn-primary w-100 mt-3">Entrar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Mantive os scripts caso precise de validação no futuro -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Login.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('emailLogin').value;
+            const senha = document.getElementById('passwordLogin').value;
+
+            // Aqui você pode fazer a requisição AJAX para o servidor
+            console.log('Email:', email, 'Senha:', senha);
+
+            // Exemplo de feedback
+            const msg = document.getElementById('loginMessage');
+            msg.style.display = 'block';
+            msg.textContent = 'Login realizado com sucesso!';
+        });
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Rolando para baixo → esconder
+                navbar.style.top = "-120px"; // ajuste de acordo com a altura da navbar
+            } else {
+                // Rolando para cima → mostrar
+                navbar.style.top = "0";
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
 </body>
 </html>

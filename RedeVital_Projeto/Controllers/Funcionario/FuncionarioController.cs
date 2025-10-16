@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-public class MedicoController : Controller
+public class FuncionarioController : Controller
 {
     public IActionResult Index()
     {
-        return View("Views/Medico/Index.cshtml");
+        return View("Views/Funcionario/Index.cshtml");
     }
     public IActionResult Login()
     {

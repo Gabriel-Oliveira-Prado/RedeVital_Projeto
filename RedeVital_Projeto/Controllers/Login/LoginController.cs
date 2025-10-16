@@ -24,11 +24,11 @@ namespace RedeVital_Projeto.Controllers.Login
             {
                 return RedirectToAction("Index", "Admin");
             }
-            else if (model.Email == "medico@rede.com" && model.Password == "123")
+            else if (model.Email == "Funcionario@BBTS.com" && model.Password == "123")
             {
-                return RedirectToAction("Index", "Medico");
+                return RedirectToAction("Index", "Funcionario");
             }
-            else if (model.Email == "paciente@rede.com" && model.Password == "123")
+            else if (model.Email == "Cliente@BBTS.com" && model.Password == "123")
             {
                 return RedirectToAction("Index", "Paciente");
             }
